@@ -1,0 +1,10 @@
+# Ignore everything...
+/*
+
+# ...except:
+!include
+!src
+!.gitignore
+!CMakeLists.txt
+!LICENSE
+!README.md
