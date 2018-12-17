@@ -11,7 +11,7 @@
 
 PPLX is a trimmed version of PPL ([Parallel Patterns Library](https://msdn.microsoft.com/en-us/library/dd492418.aspx), Microsoft's offering for task parallelism, parallel algorithms and containers for C++), featuring only tasks and task continuations, with plain vanilla thread pool implementation underneath. Officially PPLX comes bundled within [C++ REST SDK](https://github.com/Microsoft/cpprestsdk), a cross-platform library from Microsoft for creating REST services. If you use something else for REST, but still want to utilize PPLX for generic concurrency, you have to include C++ REST SDK in its entirety, which is weird.
 
-This project is an extraction of PPLX out of C++ REST SDK, presenting it in a form of a shared or static library. It is of some value for *\*nix* systems, where you don't have the luxury of using the full-fledged version – PPL.
+This project is an extraction of PPLX out of C++ REST SDK, presenting it in a form of a shared or static library. It is of some value for *\*nix* systems, where you don't have the luxury of using the full-fledged version – PPL<sup>[[1]](#r1 "Task Parallelism in C++: Patience. Trust. And Hope.")</sup>.
 
 ## How
 
@@ -59,7 +59,7 @@ Build via VS on *Windows*:
 
 ## Examples
 
-The concurrency model of PPL is quite similar to the one coming from the C++ Standard Library, with a slight skew towards the notion of task<sup>[[1]](#r1 "Microsoft Concurrency Runtime: Task Parallelism")</sup>. E.g. you launch an asynchronous operation by just creating a new task object (as opposed to an [`std::async<>`](https://en.cppreference.com/w/cpp/thread/async) call), and you basically deal with task objects rather than [*futures*](https://en.cppreference.com/w/cpp/thread/future). In the following example we'll obtain the angle between two Euclidean vectors from their dot product and magnitudes calculated concurrently.
+The concurrency model of PPL is quite similar to the one coming from the C++ Standard Library, with a slight skew towards the notion of task<sup>[[2]](#r2 "Microsoft Concurrency Runtime: Task Parallelism")</sup>. E.g. you launch an asynchronous operation by just creating a new task object (as opposed to an [`std::async<>`](https://en.cppreference.com/w/cpp/thread/async) call), and you basically deal with task objects rather than [*futures*](https://en.cppreference.com/w/cpp/thread/future). In the following example we'll obtain the angle between two Euclidean vectors from their dot product and magnitudes calculated concurrently.
 
 ```cpp
 #include <algorithm>
@@ -106,4 +106,5 @@ int main()
 
 ## References
 
-1. <a name="r1">[Microsoft Concurrency Runtime: Task Parallelism](https://msdn.microsoft.com/en-us/library/dd492427.aspx)</a>
+1. <a name="r1">[Task Parallelism in C++: Patience. Trust. And Hope.](https://martinghazaryan.com/2018/11/18/task-parallelism-in-c-patience-trust-and-hope/)</a>
+2. <a name="r2">[Microsoft Concurrency Runtime: Task Parallelism](https://msdn.microsoft.com/en-us/library/dd492427.aspx)</a>
