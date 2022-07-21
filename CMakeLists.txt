@@ -44,6 +44,15 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
         PRIVATE
             "${CMAKE_CURRENT_SOURCE_DIR}/src/pplxapple.cpp"
     )
+elseif(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
+    target_sources(${PROJECT_NAME}
+        PUBLIC
+            "${CMAKE_CURRENT_SOURCE_DIR}/include/pplx/pplxlinux.h"
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/src/pplxlinux.cpp"
+            "${CMAKE_CURRENT_SOURCE_DIR}/src/threadpool.cpp"
+            "${CMAKE_CURRENT_SOURCE_DIR}/src/threadpool.h"
+    )
 elseif(WIN32)
     target_sources(${PROJECT_NAME}
         PUBLIC
